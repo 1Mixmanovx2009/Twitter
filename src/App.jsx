@@ -1,16 +1,17 @@
+import React, { useContext } from 'react';
 import './App.css'
 import LoginRoates from "./routes/LoginRoates"
 import DashboardRoates from "./routes/DashboardRoates"
+import { Context } from './context/AuthContext'
 
 function App() {
-  const token = false
-  if(token){
-    return<DashboardRoates/>
-  }
+  const { token } = useContext(Context);  // Tokenni to‘g‘ri ajratib olish
 
-  else {
+  if(token) {
+    return <DashboardRoates/>
+  } else {
     return <LoginRoates/>
   }
 }
 
-export default App
+export default App;
