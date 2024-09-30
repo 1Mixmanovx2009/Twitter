@@ -1,19 +1,19 @@
 import React, { useContext, useState } from 'react';
+import { Link } from 'react-router-dom';
 import Logo from "../assets/images/Logo.svg";
 import LoginInput from '../components/LoginInput';
 import Button from '../components/Button';
-import { Link } from 'react-router-dom';
-import { Context } from '../context/AuthContext';
+import { Context } from '../context/AuthContext'; // Import the Context
 import Loading from '../assets/images/Loading.png';
 import toast, { Toaster } from 'react-hot-toast';
 import Modal from '../components/Modal';  
 
 function Login() {
-  const { setToken } = useContext(Context);
+  const { registerUser, setToken } = useContext(Context); // Get registerUser from context
   const [isLoading, setIsLoading] = useState(false);
-  const [showModal, setShowModal] = useState(false); 
-  const [modalMessage, setModalMessage] = useState(''); 
-  
+  const [showModal, setShowModal] = useState(false);
+  const [modalMessage, setModalMessage] = useState('');
+
   const handleCloseModal = () => setShowModal(false);
 
   function handleLoginSubmit(e) {
@@ -23,12 +23,15 @@ function Login() {
       password: e.target.password.value
     };
 
-    if (data.Login === "Xojiakbar" && data.password === "124") {
-      toast.success("Xush kelibsiz Twitterga, " + data.Login);
-      setIsLoading(true);  
-      setTimeout(() => setToken(data), 1000);
+    if (data.Login === registerUser.name && data.password === registerUser.tel) { 
+      setIsLoading(true);
+      toast.success("Welcome back to Twitter, " + data.Login);
+      setTimeout(() => {
+        setIsLoading(false);
+        setToken(data);
+      }, 1000);
     } else {
-      setModalMessage("Hato ma'lumot kirittingiz. Iltimos, sizga berilgan tokenni kiriting. Agar siz yangi bo'lsangiz, quyidagi 'Sign Up' tugmasidan ro'yxatdan o'ting.");
+      setModalMessage("Invalid credentials. Please sign up or check your login details.");
       setShowModal(true);
     }
   }
@@ -47,7 +50,7 @@ function Login() {
         <p className='signUp text-[18px] text-[#1DA1F2] font-normal leading-[23px] cursor-pointer'>Forgot password?</p>
         <Link to={'/sign-up'} className='signUp text-[18px] text-[#1DA1F2] font-normal leading-[23px]'>Sign up to Twitter</Link>
       </div>
-      
+
       <Modal showModal={showModal} handleClose={handleCloseModal} message={modalMessage} />
     </form>
   );
