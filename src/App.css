@@ -57,4 +57,20 @@ body {
   100%  {transform:scaleY(-1) rotate(-135deg)}
 }
 
+.active {
+  font-weight: bold;
+}
+
+.navbar {
+  overflow-y:auto;
+}
+
+.navbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none
+}
+
+.navbar::-webkit-scrollbar {
+  display: none;
+}
 

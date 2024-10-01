@@ -3,7 +3,7 @@ import { createContext, useState } from "react";
 export const Context = createContext()
 
 export const AuthContext= ({children}) => {
-    const [registerUser, setRegisterUser] = useState(JSON.parse(localStorage.getItem("registerUser")) || [])
+    const [registerUser, setRegisterUser] = useState(JSON.parse(localStorage.getItem("registerUser")) || null)
     const [token, setToken] = useState(JSON.parse(localStorage.getItem("token")) || null)
 
     localStorage.setItem("token", JSON.stringify(token))
