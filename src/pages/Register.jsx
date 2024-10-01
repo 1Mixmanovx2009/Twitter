@@ -6,11 +6,11 @@ import Button from '../components/Button';
 import { Link } from 'react-router-dom';
 import Loading from '../assets/images/Loading.png';
 import toast, { Toaster } from 'react-hot-toast';
-import { Context } from '../context/AuthContext'; // Import Context
+import { Context } from '../context/AuthContext'; 
 
 function Register() {
   const [isLoading, setIsLoading] = useState(false);
-  const { setRegisterUser } = useContext(Context); // Use Context to set registerUser
+  const { setRegisterUser } = useContext(Context); 
   const navigate = useNavigate();
 
   function handleRegisterSubmit(e) {
@@ -20,9 +20,8 @@ function Register() {
       tel: e.target.tel.value
     };
 
-    // Save data to localStorage and context
     localStorage.setItem('registerUser', JSON.stringify(data));
-    setRegisterUser(data); // Set register user in the context
+    setRegisterUser(data); 
 
     toast.success('Registration data saved successfully!');
 
@@ -49,7 +48,7 @@ function Register() {
         </p>
       </div>
 
-      <Button extroStyle={"mb-[40px]"} type={"submit"}>
+      <Button exrtoStyle={'mb-[40px]'} type={"submit"}>
         {isLoading ? <img className='scale-[4] mx-auto' src={Loading} width={23} /> : "Next"}
       </Button>
 

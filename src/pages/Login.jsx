@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom';
 import Logo from "../assets/images/Logo.svg";
 import LoginInput from '../components/LoginInput';
 import Button from '../components/Button';
-import { Context } from '../context/AuthContext'; // Import the Context
+import { Context } from '../context/AuthContext'; 
 import Loading from '../assets/images/Loading.png';
 import toast, { Toaster } from 'react-hot-toast';
 import Modal from '../components/Modal';  
 
 function Login() {
-  const { registerUser, setToken } = useContext(Context); // Get registerUser from context
+  const { registerUser, setToken } = useContext(Context); 
   const [isLoading, setIsLoading] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [modalMessage, setModalMessage] = useState('');

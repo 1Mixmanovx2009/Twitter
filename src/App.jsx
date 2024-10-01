@@ -5,7 +5,7 @@ import DashboardRoates from "./routes/DashboardRoates"
 import { Context } from './context/AuthContext'
 
 function App() {
-  const { token } = useContext(Context);  // Tokenni to‘g‘ri ajratib olish
+  const { token } = useContext(Context); 
 
   if(token) {
     return <DashboardRoates/>
