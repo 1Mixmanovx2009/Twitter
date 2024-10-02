@@ -73,7 +73,7 @@ function Home() {
   }
 
   return (
-    <div className='navbar border-r-[3px] border-[#D8D8D8] h-[100vh] overflow-y-auto'>
+    <div className='navbar border-r-[3px] w-[55%] border-[#D8D8D8] h-[100vh] overflow-y-auto'>
       <div className='w-[630px] flex items-center justify-between p-5 border-b-[3px] z-50 absolute bg-white border-[#D8D8D8]'>
         <h2 className='text-[24px] font-[700] leading-[31.92px]'>Home</h2>
         <button className='z-50 bg-white'>

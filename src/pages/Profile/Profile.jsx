@@ -1,14 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Arrow from '../../assets/images/Arrow 1.svg'
+import bgPhoto from '../../assets/images/bgPhoto.png'
+import { useNavigate } from 'react-router-dom';
+import Location from '../../assets/images/Location.svg'
+import Link from '../../assets/images/Link.svg'
+import Information from '../../assets/images/Information.svg'
+import Сalendar from '../../assets/images/Сalendar.svg'
 
 function Profile() {
   const user = JSON.parse(localStorage.getItem("token"))
+  const [profileImg, setProfileImg] = useState("https://picsum.photos/800/800")
+  const navigate = useNavigate()
 
   return (
-    <div className="w-full max-w-2xl mx-auto">
+    <div className="w-full max-w-2xl mx-auto border-r-[2px] border-[#D8D8D8]">
 
-    <div className="flex items-center space-x-4 p-[22px] border-b-[2px] border-[#D8D8D8]">
-      <button className="text-xl">
+    <div className="flex items-center space-x-4 p-[10px]">
+      <button onClick={() => navigate(-1)} className="text-xl">
         <img src={Arrow} alt="" />
       </button>
       
@@ -20,17 +28,17 @@ function Profile() {
 
       <div className="relative">
         <img
-          className="w-full h-40 object-cover"
-          src="https://via.placeholder.com/1500x500"
+          className="w-full h-[200px] object-cover"
+          src={bgPhoto}
           alt="Header"
         />
         <div className="absolute left-4 bottom-[-40px]">
           <img
             className="rounded-full border-4 border-white"
-            src="https://via.placeholder.com/150"
+            src={profileImg}
             alt="Profile"
-            width={80}
-            height={80}
+            width={100}
+            height={100}
           />
         </div>
       </div>
@@ -52,78 +60,26 @@ function Profile() {
           </a>
         </p>
 
-        <div className="text-gray-500 mt-1 flex space-x-3">
+        <div className="text-gray-500 mt-1 flex items-center justify-between gap-5 space-x-3">
           <div className="flex items-center space-x-1">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              className="w-5 h-5"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M16.862 5.487a4.5 4.5 0 00-6.9 0L12 7l1.038-1.513a4.5 4.5 0 016.9 0l.625.91"
-              />
-            </svg>
+            <img className='w-[24px] h-[24px]' src={Location} alt="" width={24} height={24} />
             <span>Mashag’daman</span>
           </div>
 
           <div className="flex items-center space-x-1">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              className="w-5 h-5"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M16.707 3.293a1 1 0 00-1.414 0L10 8.586 8.707 7.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l6-6a1 1 0 000-1.414z"
-              />
-            </svg>
-            <a href="https://t.me/boburjon_mavlonov" className="text-blue-500">
+            <img className='w-[24px] h-[24px]' src={Link} alt="" />
+            <a href="https://t.me/boburjon_mavlonov" className="text-blue-500 text-[12px]">
               t.me/boburjon_mavlonov
             </a>
           </div>
 
           <div className="flex items-center space-x-1">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              className="w-5 h-5"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M16 2H8v4H4v14h16V6h-4V2z"
-              />
-            </svg>
+            <img className='w-[24px] h-[24px]' src={Information} alt="" />
             <span>Born November 24, 2000</span>
           </div>
 
           <div className="flex items-center space-x-1">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              className="w-5 h-5"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M8 7v5l3.5-3.5L8 7z"
-              />
-            </svg>
+            <img className='w-[24px] h-[24px]' src={Сalendar} alt="" />
             <span>Joined May 2020</span>
           </div>
         </div>
