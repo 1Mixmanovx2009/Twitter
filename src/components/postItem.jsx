@@ -15,7 +15,7 @@ function postItem({item}) {
               <button className='absolute top-[21px] right-[25px]'>
                 <Dots />
               </button>
-              {item.postImg ? <img className='mb-[22px]' src={item.postImg} alt="" /> : ""}
+              {item.postImg ? <img className='mb-[22px] rounded-lg' src={item.postImg} alt="" /> : ""}
                   
               <div className='flex items-center gap-[70px]'>
                 <button className='flex items-center space-x-[10px]'>

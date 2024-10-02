@@ -74,7 +74,7 @@ function Navbar() {
                     </NavLink>
                 ))}
             </div>
-            <Button exrtoStyle={'py-[15px] px-[0px] w-[229px] mb-[260px]'} type={"button"}>Tweet</Button>
+            <Button exrtoStyle={'py-[15px] w-full px-[0px] w-[229px] mb-[260px]'} type={"button"}>Tweet</Button>
             <div className='flex items-center space-x-[10px]'>
                 <img className='rounded-full' src="https://picsum.photos/500/500" alt="Icon" width={50} height={50} />
                 <div className='flex items-center justify-between w-[80%]'>

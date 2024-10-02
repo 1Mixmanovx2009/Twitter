@@ -48,7 +48,7 @@ function Register() {
         </p>
       </div>
 
-      <Button exrtoStyle={'mb-[40px]'} type={"submit"}>
+      <Button exrtoStyle={'mb-[40px] w-full'} type={"submit"}>
         {isLoading ? <img className='scale-[4] mx-auto' src={Loading} width={23} /> : "Next"}
       </Button>
 

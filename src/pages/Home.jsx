@@ -62,27 +62,31 @@ function Home() {
       LiceCount: null,
       postImg: postImgUrl ? postImgUrl : null,
     };
-    
+
     setIsLoading(true);
     setTimeout(() => {
-      setPosts([data, ...posts]); 
+      setPosts([data, ...posts]);
       setIsLoading(false);
+      setPostImgUrl(null)
       setInputValue('');
     }, 1000);
   }
-  
+
   return (
     <div className='navbar border-r-[3px] border-[#D8D8D8] h-[100vh] overflow-y-auto'>
-      <div className='w-[637px] flex items-center justify-between p-5 border-b-[3px] z-50 absolute bg-white border-[#D8D8D8]'>
+      <div className='w-[630px] flex items-center justify-between p-5 border-b-[3px] z-50 absolute bg-white border-[#D8D8D8]'>
         <h2 className='text-[24px] font-[700] leading-[31.92px]'>Home</h2>
         <button className='z-50 bg-white'>
           <ModeIcon />
         </button>
       </div>
       <form onSubmit={handleSubmitPosts} className='p-5 mt-[74px] border-b-[3px] border-[#D8D8D8] relative'>
-        <div className='flex items-center space-x-[15px]'>
-          <img className='rounded-full' src="https://picsum.photos/800/800" alt="" width={60} height={60} />
-          <input onChange={(e) => setInputValue(e.target.value)} required className='w-full text-[22px] font-700 leading-[29px] placeholder:text-[#828282] p-[1px] outline-none' type="text" placeholder='What’s happening' autoComplete='off' name='tweetData' />
+        <div className='flex space-x-[15px]'>
+          <img className='rounded-full w-[60px] h-[60px]' src="https://picsum.photos/800/800" alt="" width={60} height={60} />
+          <div>
+            <input onChange={(e) => setInputValue(e.target.value)} required className='w-full mb-[20px] text-[22px] font-700 leading-[29px] placeholder:text-[#828282] p-[1px] outline-none' type="text" placeholder='What’s happening' autoComplete='off' name='tweetData' />
+                 {postImgUrl ? <img src={postImgUrl} alt='Choosen img' width={679} height={453} /> : ""}
+          </div>
         </div>
         <div className='flex items-center space-x-5 pl-[77px] mb-[26px] mt-6'>
           <label className='cursor-pointer'>
@@ -107,9 +111,9 @@ function Home() {
           </label>
         </div>
         <Button type={inputValue ? "submit" : "button"} exrtoStyle={`w-[108px] absolute right-[18px] bottom-[5px] ${inputValue ? "" : "cursor-not-allowed opacity-50 hover:opacity-50"}`}>
-          {isLoading ? <img className='mx-auto scale-[3]' src={Loading} width={22} height={22}/> : "Tweet"}</Button>
+          {isLoading ? <img className='mx-auto scale-[3]' src={Loading} width={22} height={22} /> : "Tweet"}</Button>
       </form>
-      <ul>{posts.map(item => <PostItem key={item.id} item={item}/>)}</ul>
+      <ul>{posts.map(item => <PostItem key={item.id} item={item} />)}</ul>
     </div>
   )
 }

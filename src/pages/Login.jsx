@@ -43,7 +43,7 @@ function Login() {
       <h2 className='text-[42px] leading-[49px] font-[900] my-[36px]'>Log in to Twitter</h2>
       <LoginInput placeholder={"Phone number, email address"} name={"Login"} type={"text"} extroStyle={"mb-[25px]"} />
       <LoginInput placeholder={"Password"} name={"password"} type={"password"} extroStyle={"mb-[25px]"} />
-      <Button extroStyle={"h=[59px]"} type={"submit"}>
+      <Button extroStyle={"w-[200px] h-[59px]"} type={"submit"}>
         {isLoading ? <img className='scale-[4] mx-auto' src={Loading} width={23}/> : "Log In"}
       </Button>
       <div className='flex justify-between items-center mt-10'>

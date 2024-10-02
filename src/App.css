@@ -74,3 +74,14 @@ body {
   display: none;
 }
 
+body {
+  overflow: hidden;
+}
+
+.sitebar {
+  -ms-overflow-style: none;
+  scrollbar-width: none
+}
+.sitebar::-webkit-scrollbar {
+  display: none;
+}
